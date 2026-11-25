@@ -56,6 +56,10 @@ export default function ClientAccessPage() {
             <span><b>02</b> Email sign-in link</span>
             <span><b>03</b> Project information stays private</span>
           </div>
+          <div className="studio-atlas">
+            <img src="/studio-atlas.svg" alt="" />
+            <span>THE STUDIO / A WORLD IN PROGRESS</span>
+          </div>
         </section>
 
         <section className="access-card" aria-labelledby="access-title">
@@ -91,6 +95,23 @@ export default function ClientAccessPage() {
           <p className="access-help">Need access for the first time? <a href="mailto:hello@nartstudio.com?subject=Client%20portal%20access">Ask your Nartstudio contact</a>.</p>
         </section>
       </main>
+      <section className="selected-work" aria-labelledby="selected-work-title">
+        <div className="selected-work-heading">
+          <div><p className="eyebrow"><span /> SELECTED WORLDS & WORK</p><h2 id="selected-work-title">Made to be<br /><em>stepped into.</em></h2></div>
+          <p>Original universes and moving-image work from across the Nartstudio ecosystem.</p>
+        </div>
+        <div className="work-gallery">
+          <a className="work-card work-card-ncu" href="https://ncunartstudio.vercel.app" target="_blank" rel="noopener noreferrer">
+            <img src="/ncu-work.svg" alt="" /><span>ORIGINAL UNIVERSES / COMICS</span><strong>NCU <i>↗</i></strong>
+          </a>
+          <a className="work-card work-card-oubyt" href="https://oubyt.vercel.app" target="_blank" rel="noopener noreferrer">
+            <img src="/oubyt-work.svg" alt="" /><span>MOTION / VISUAL STORIES</span><strong>Oubyt <i>↗</i></strong>
+          </a>
+          <a className="work-card work-card-pylothouse" href="https://pylothouse.com" target="_blank" rel="noopener noreferrer">
+            <img src="/pylothouse-work.svg" alt="" /><span>STORIES / CREATOR TOOLS</span><strong>Pylothouse <i>↗</i></strong>
+          </a>
+        </div>
+      </section>
       <section className="process-strip" aria-label="How client access works">
         <div><span>01 / REQUEST</span><strong>Use your invited email</strong><p>Only existing client accounts can request a sign-in link.</p></div>
         <div><span>02 / VERIFY</span><strong>Open the one-time link</strong><p>Confirm your identity from the inbox for that address.</p></div>

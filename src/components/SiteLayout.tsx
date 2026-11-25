@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import ParallaxAtmosphere from './ParallaxAtmosphere'
 
 const navigation = [
   { label: 'Access', href: '/' },
@@ -13,10 +14,11 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="portal-site">
+      <ParallaxAtmosphere />
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
         <Link className="wordmark" href="/" aria-label="Nartstudio client portal home">
-          NARTSTUDIO <span>CLIENTS</span>
+          <img src="/brand-mark.svg" alt="" />NARTSTUDIO <span>CLIENTS</span>
         </Link>
         <nav aria-label="Main navigation">
           {navigation.map((item) => (
