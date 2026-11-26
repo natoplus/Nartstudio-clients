@@ -2419,20 +2419,25 @@ a.service-card:hover,
 
   .site-header .site-nav.is-open {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: stretch;
   }
 
   .site-nav > a {
+    width: 100%;
     min-height: 48px;
     display: flex;
     align-items: center;
+    justify-content: center;
     border-bottom: 1px solid rgba(255, 255, 255, .08);
     font-size: .82rem;
   }
 
   .nav-actions {
+    width: 100%;
     margin: 14px 0 0;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
 
   .site-nav .nav-search {
@@ -2441,8 +2446,13 @@ a.service-card:hover,
 
   .site-nav .nav-signin,
   .site-nav .nav-cta {
+    width: 100%;
+    max-width: 320px;
     min-height: 46px;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     font-size: .76rem;
   }
 
