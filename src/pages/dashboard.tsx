@@ -66,11 +66,11 @@ export default function ClientDashboardPage() {
       setSigningOut(false)
       return
     }
-    await router.replace('/')
+    await router.replace('/signin')
   }
 
   return (
-    <SiteLayout>
+    <SiteLayout variant="portal">
       <Head>
         <title>Workspace | Nartstudio Clients</title>
         <meta name="robots" content="noindex,nofollow" />
@@ -96,7 +96,7 @@ export default function ClientDashboardPage() {
           <div className="notice notice-warning">
             <strong>Sign-in required</strong>
             <p>Use your invited client email to access the workspace.</p>
-            <Link href="/">Continue to secure access <span aria-hidden="true">↗</span></Link>
+            <Link href="/signin">Continue to secure access <span aria-hidden="true">↗</span></Link>
           </div>
         )}
         {access === 'unavailable' && (

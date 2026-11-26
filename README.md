@@ -1,6 +1,6 @@
-# Nartstudio Client Portal
+# Nartstudio Clients
 
-A standalone Next.js portal frontend for Nartstudio client access.
+A standalone Next.js site for Nartstudio's public studio information and invitation-only client access.
 
 ## Local development
 
@@ -24,6 +24,9 @@ The sign-in flow uses email one-time links and does not create new users. Client
 
 ## Current pages
 
-- `/` — invitation-only email sign-in
+- `/` — public studio homepage
+- `/studio`, `/services`, `/work`, `/brands`, `/news`, `/contact`, and `/faq` — public studio pages
+- `/start` and `/artists/join` — project and artist enquiry forms; each opens a draft email for review and does not submit or store data on the site
+- `/signin` — invitation-only email sign-in
 - `/dashboard` — session-aware workspace shell
 - `/help` — client support routing via email
