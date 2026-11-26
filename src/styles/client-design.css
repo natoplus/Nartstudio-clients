@@ -309,6 +309,9 @@ body {
   z-index: -2;
   inset: 0;
   background:
+    linear-gradient(90deg, rgba(7, 8, 13, .82), rgba(7, 8, 13, .5) 52%, rgba(7, 8, 13, .78)),
+    linear-gradient(0deg, rgba(7, 8, 13, .38), rgba(7, 8, 13, .12)),
+    url("/assets/images/news-hero.webp") center 48% / cover no-repeat,
     radial-gradient(ellipse at 50% 35%, rgba(107, 75, 255, .2), transparent 34%),
     radial-gradient(ellipse at 15% 50%, rgba(0, 194, 184, .14), transparent 28%),
     radial-gradient(ellipse at 88% 55%, rgba(214, 0, 111, .12), transparent 30%);
@@ -685,13 +688,30 @@ body {
   transform: translateY(-10px) rotate(0) scale(1.025);
 }
 
-.world-card img {
+.world-card-art {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform .7s ease, filter .5s ease;
+}
+
+.world-card-logo {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: min(68%, 250px);
+  max-height: 82px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 16px rgba(0, 0, 0, .7));
+  transform: translate(-50%, -50%);
+}
+
+.world-card--3 .world-card-logo {
+  width: 82px;
+  max-height: 82px;
 }
 
 .world-card::after {
@@ -887,6 +907,30 @@ body {
   color: var(--silver);
   text-decoration: none;
   transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.service-card:nth-child(1) {
+  background: linear-gradient(180deg, rgba(7, 8, 13, .44), rgba(7, 8, 13, .94)), url("/assets/universes/royal-target.webp") center 34% / cover;
+}
+
+.service-card:nth-child(2) {
+  background: linear-gradient(180deg, rgba(7, 8, 13, .42), rgba(7, 8, 13, .95)), url("/assets/universes/holo-host.webp") center 30% / cover;
+}
+
+.service-card:nth-child(3) {
+  background: linear-gradient(180deg, rgba(7, 8, 13, .4), rgba(7, 8, 13, .93)), url("/assets/images/adventure.webp") center / cover;
+}
+
+.service-card:nth-child(4) {
+  background: linear-gradient(180deg, rgba(7, 8, 13, .42), rgba(7, 8, 13, .95)), url("/assets/universes/the-unliving-sage.webp") center 28% / cover;
+}
+
+.service-card:nth-child(5) {
+  background: linear-gradient(180deg, rgba(7, 8, 13, .44), rgba(7, 8, 13, .95)), url("/assets/universes/lords-lounge.webp") center 28% / cover;
+}
+
+.service-card:nth-child(6) {
+  background: linear-gradient(180deg, rgba(7, 8, 13, .38), rgba(7, 8, 13, .94)), url("/assets/images/sci-fi.webp") center / cover;
 }
 
 a.service-card:hover,
@@ -1132,7 +1176,9 @@ a.service-card:hover,
   justify-content: space-between;
   border: 1px solid rgba(255, 255, 255, .18);
   border-radius: 24px 7px 24px 7px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .02));
+  background:
+    linear-gradient(145deg, rgba(7, 8, 13, .34), rgba(7, 8, 13, .78)),
+    url("/assets/images/cyberpunk.webp") center / cover;
   box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
   transform: rotate(2deg);
 }
@@ -1341,6 +1387,8 @@ a.service-card:hover,
   overflow: hidden;
   border-block: 1px solid rgba(255, 255, 255, .08);
   background:
+    linear-gradient(rgba(7, 8, 13, .64), rgba(7, 8, 13, .72)),
+    url("/assets/universes/mod.webp") center 42% / cover no-repeat,
     radial-gradient(ellipse at 15% 90%, rgba(0, 194, 184, .19), transparent 40%),
     radial-gradient(ellipse at 84% 10%, rgba(214, 0, 111, .17), transparent 43%),
     radial-gradient(ellipse at 55% 60%, rgba(107, 75, 255, .16), transparent 48%),
@@ -1586,6 +1634,28 @@ a.service-card:hover,
   border-radius: 25px;
 }
 
+.work-gallery--editorial .work-card .work-card-art {
+  opacity: .84;
+}
+
+.work-gallery--editorial .work-card .work-card-logo {
+  position: absolute;
+  z-index: 1;
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: min(68%, 245px);
+  height: 86px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 16px rgba(0, 0, 0, .7));
+  transform: translate(-50%, -50%);
+}
+
+.work-gallery--editorial .work-card--pylothouse .work-card-logo {
+  width: 86px;
+  height: 86px;
+}
+
 .work-gallery--editorial .work-card > p {
   position: absolute;
   z-index: 1;
@@ -1639,16 +1709,6 @@ a.service-card:hover,
   color: var(--green);
 }
 
-.brand-panel-logo {
-  width: auto;
-  max-width: 180px;
-  height: 72px;
-  display: block;
-  margin-bottom: 20px;
-  object-fit: contain;
-  object-position: left center;
-}
-
 .brand-panel-copy h2 {
   margin: 25px 0 7px;
   font-family: Sora, Inter, sans-serif;
@@ -1665,12 +1725,45 @@ a.service-card:hover,
   line-height: 1.8;
 }
 
-.brand-panel > img {
-  width: 100%;
-  display: block;
+.brand-panel-art {
+  position: relative;
+  min-height: 250px;
+  aspect-ratio: 1.65;
+  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 20px;
   box-shadow: 0 25px 65px rgba(0, 0, 0, .3);
+}
+
+.brand-panel-art::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 8, 13, .08), rgba(7, 8, 13, .56));
+  content: "";
+}
+
+.brand-panel-backdrop {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.brand-panel-logo {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: min(74%, 310px);
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 16px rgba(0, 0, 0, .7));
+  transform: translate(-50%, -50%);
+}
+
+.brand-panel--violet .brand-panel-logo {
+  width: 96px;
+  height: 96px;
 }
 
 .brand-panel--magenta .brand-panel-copy .card-number {
@@ -2274,11 +2367,14 @@ a.service-card:hover,
     display: none;
   }
 
-  .site-header {
+  .portal-site .site-header {
     top: 7px;
     width: calc(100% - 24px);
     min-height: 62px;
     padding: 8px 9px 8px 15px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
     border-radius: 999px;
   }
 
@@ -2306,6 +2402,7 @@ a.service-card:hover,
 
   .site-header .site-nav {
     position: absolute;
+    z-index: 20;
     top: calc(100% + 9px);
     right: 0;
     left: 0;
@@ -2316,9 +2413,8 @@ a.service-card:hover,
     gap: 0;
     border: 1px solid rgba(255, 255, 255, .16);
     border-radius: 25px;
-    background: rgba(7, 8, 13, .97);
+    background: #07080d;
     box-shadow: 0 25px 75px rgba(0, 0, 0, .5);
-    backdrop-filter: blur(24px);
   }
 
   .site-header .site-nav.is-open {
@@ -2627,7 +2723,7 @@ a.service-card:hover,
     order: 0;
   }
 
-  .brand-panel > img {
+  .brand-panel-art {
     grid-row: 2;
   }
 

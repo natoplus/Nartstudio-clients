@@ -67,7 +67,8 @@ export default function ClientHomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={brand.image} alt="" loading="lazy" />
+                <img className="world-card-art" src={brand.image} alt="" loading="lazy" />
+                <img className="world-card-logo" src={brand.logo} alt="" loading="lazy" />
                 <span className="world-card-category">{brand.category}</span>
                 <span className="world-card-copy"><strong>{brand.name}</strong><span>{brand.description}</span></span>
                 <span className="world-card-open" aria-hidden="true">↗</span>

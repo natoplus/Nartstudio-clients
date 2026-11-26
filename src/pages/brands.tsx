@@ -20,7 +20,6 @@ export default function BrandsPage() {
           {brands.map((brand, index) => (
             <article className={`brand-panel brand-panel--${brand.accent}`} key={brand.slug}>
               <div className="brand-panel-copy">
-                <img className="brand-panel-logo" src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
                 <span className="card-number">0{index + 1} / {brand.category}</span>
                 <h2>{brand.name}</h2>
                 <p>{brand.description}</p>
@@ -28,7 +27,10 @@ export default function BrandsPage() {
                   Visit {brand.name} <span aria-hidden="true">↗</span>
                 </a>
               </div>
-              <img src={brand.image} alt="" loading="lazy" />
+              <div className="brand-panel-art">
+                <img className="brand-panel-backdrop" src={brand.image} alt="" loading="lazy" />
+                <img className="brand-panel-logo" src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
+              </div>
             </article>
           ))}
         </section>

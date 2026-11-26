@@ -39,10 +39,11 @@ export default function WorkPage() {
             ))}
           </div>
           <div className="work-gallery work-gallery--editorial">
-            {visibleBrands.map((brand, index) => (
-              <a className={`work-card work-card--${brand.accent} work-card--index-${index + 1}`} href={brand.href} key={brand.slug} target="_blank" rel="noopener noreferrer">
-                <img src={brand.image} alt="" loading="lazy" />
+            {visibleBrands.map((brand) => (
+              <a className={`work-card work-card--${brand.accent} work-card--${brand.slug}`} href={brand.href} key={brand.slug} target="_blank" rel="noopener noreferrer">
+                <img className="work-card-art" src={brand.image} alt="" loading="lazy" />
                 <span>{brand.category}</span>
+                <img className="work-card-logo" src={brand.logo} alt="" loading="lazy" />
                 <strong>{brand.name}<i aria-hidden="true">↗</i></strong>
                 <p>{brand.description}</p>
               </a>
