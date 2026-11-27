@@ -2735,6 +2735,9 @@ a.service-card:hover,
 
   .brand-panel-art {
     grid-row: 2;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1.3;
   }
 
   .work-gallery--editorial {
@@ -2881,5 +2884,52 @@ a.service-card:hover,
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
+  }
+}
+
+html[data-scroll-reveal="active"] .scroll-reveal-item {
+  opacity: 0;
+  translate: 0 22px;
+  transition: opacity .65s cubic-bezier(.2, .7, .2, 1), translate .65s cubic-bezier(.2, .7, .2, 1);
+  transition-delay: var(--scroll-reveal-delay, 0ms);
+}
+
+html[data-scroll-reveal="active"] .scroll-reveal-item.scroll-reveal-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.brand-panel {
+  transition: border-color .35s ease, box-shadow .45s ease;
+}
+
+.brand-panel:hover {
+  border-color: rgba(255, 255, 255, .24);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .28);
+}
+
+.brand-panel-backdrop {
+  position: absolute;
+  inset: -5% 0;
+  height: 110%;
+  transform: translate3d(0, var(--parallax-offset, 0px), 0) scale(1.05);
+  transition: transform .65s cubic-bezier(.2, .7, .25, 1);
+  will-change: transform;
+}
+
+.brand-panel-art:hover .brand-panel-backdrop {
+  transform: translate3d(0, var(--parallax-offset, 0px), 0) scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-scroll-reveal="active"] .scroll-reveal-item {
+    opacity: 1 !important;
+    translate: none !important;
+    transition: none !important;
+  }
+
+  .brand-panel-backdrop {
+    transform: none !important;
+    transition: none !important;
   }
 }
